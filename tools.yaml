@@ -1,0 +1,26 @@
+sources:
+  local-tools:
+    kind: python
+    path: /Users/nithyavadapalli/GenAI/self-healing-agent/tools/adk_tools.py
+tools:
+  calendar_create_event:
+    description: Schedule a calendar meeting. Requires start_timestamp, title, and
+      participants.
+    function: create_event
+    kind: python-function
+    source: local-tools
+  notes_create_note:
+    description: Create a document/note. Requires title and body.
+    function: create_note
+    kind: python-function
+    source: local-tools
+  slack_send_message:
+    description: Send a Slack notification. Requires channel and message.
+    function: send_message
+    kind: python-function
+    source: local-tools
+toolsets:
+  main_toolset:
+  - calendar_create_event
+  - slack_send_message
+  - notes_create_note
